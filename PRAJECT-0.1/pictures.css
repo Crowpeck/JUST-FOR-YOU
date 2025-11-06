@@ -1,0 +1,286 @@
+/* =========================================================
+   GLOBAL STYLES
+========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* =========================================================
+   NAVBAR (HORIZONTAL ICON BAR)
+========================================================= */
+.navbar {
+  width: 100%;
+  padding: 20px 0; /* Slightly taller navbar */
+  background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Container for icons */
+.icon-container {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Individual icon cards */
+.icon-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #7a4cf9, #b056f9);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.icon-card i {
+  font-size: 28px;
+  color: #fff;
+}
+
+.icon-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Active icon for current page */
+.icon-card.active {
+  background: linear-gradient(135deg, #ff8a00, #e52e71);
+  box-shadow: 0 0 15px rgba(229, 46, 113, 0.6);
+}
+
+/* =========================================================
+   PAGE TITLE
+========================================================= */
+.title, h1 {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  display: block;
+}
+
+/* =========================================================
+   CARD GRID (4x9 layout)
+========================================================= */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: auto;
+  gap: 30px;
+  width: 100%;
+  max-width: 1400px;
+  padding: 20px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+/* =========================================================
+   CARD STYLING
+========================================================= */
+.card {
+  aspect-ratio: 3 / 4;
+  perspective: 1000px;
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  overflow: hidden;
+  margin: 0 auto;
+  box-shadow: 0 8px 32px rgba(40,40,40,0.18), 0 2px 8px rgba(160,160,160,0.12);
+  transition: box-shadow 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 16px 48px rgba(40,40,40,0.22), 0 4px 16px rgba(160,160,160,0.18);
+}
+
+.card-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+}
+
+.card.flip .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+.card-front {
+  background-color: #fff;
+}
+
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Card Back Styling - Modern gradient, readable font, fit text */
+.card-back {
+  background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+  color: #333;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 10px;
+  text-align: center;
+  font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+  font-size: 1.08rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  box-shadow: 0 0 10px 6px rgba(255,255,255,0.18), 0 12px 32px rgba(40, 40, 40, 0.35), 0 10px 8px rgba(0,0,0,0.18);
+  outline: 2px solid rgba(160,160,160,0.18);
+  outline-offset: 2px;
+  border-radius: 14px;
+  overflow: hidden;
+  word-break: break-word;
+  transition: background 0.3s, font-size 0.3s;
+}
+@media (max-width: 768px) {
+  .card-back {
+    font-size: 0.98rem;
+    padding: 14px 6px;
+  }
+  .card {
+    box-shadow: 0 4px 16px rgba(40,40,40,0.16), 0 1px 4px rgba(160,160,160,0.10);
+  }
+}
+@media (max-width: 480px) {
+  .card-back {
+    font-size: 0.92rem;
+    padding: 10px 2px;
+  }
+  .card {
+    box-shadow: 0 2px 8px rgba(40,40,40,0.12), 0 1px 2px rgba(160,160,160,0.08);
+  }
+}
+.owl-image {
+  width: 15%;
+  height: 25%s;
+  position: absolute;
+  right: -1%;
+  top: 20%;
+  transform: translateY(-60%);
+  z-index: 1;
+}
+@media (max-width: 600px) {
+  .owl-image {
+     width: 15%;
+  height: 25%s;
+  position: absolute;
+  right: -1%;
+  top: 20%;
+  transform: translateY(-60%);
+  z-index: 1;
+}
+  }
+
+@media (max-width: 400px) {
+  .owl-image {
+      width: 15%;
+  height: 25%s;
+  position: absolute;
+  right: -1%;
+  top: 8%;
+  transform: translateY(-60%);
+  z-index: 1;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+@media (max-width: 1200px) {
+  .card-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.6em;
+    margin-top: 20px;
+  }
+
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .icon-container {
+    gap: 25px;
+    flex-wrap: wrap;
+  }
+
+  .icon-card {
+    width: 60px;
+    height: 60px;
+  }
+
+  .icon-card i {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.4em;
+  }
+
+  .card-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .icon-container {
+    gap: 15px;
+  }
+
+  .icon-card {
+    width: 55px;
+    height: 55px;
+  }
+
+  .icon-card i {
+    font-size: 22px;
+  }
+}

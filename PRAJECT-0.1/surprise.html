@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="surprise.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <div class="description">
+        <h1>Decode Me</h1>
+        <p>Satisfy your curiosity</p>
+    </div>
+
+    <form id="loginForm" class="login-form">
+
+        <input type="password" id="password" required>
+        <button type="submit">Login</button>
+        <p id="validationError" class="error-message" style="display: none;">Incorrect password!</p>
+    </form>
+
+    <!-- Modal -->
+    <div id="hintModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="text">Hint: "THE DATE"</p>
+        </div>
+    </div>
+</div>
+
+<script src="surprise.js"></script>
+</body>
+</html>

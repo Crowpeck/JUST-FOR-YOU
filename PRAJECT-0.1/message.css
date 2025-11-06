@@ -1,0 +1,306 @@
+body {
+  min-height: 100vh;
+  height: 100vh;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+}
+
+/* NAVBAR WITH ICONS - same as pictures.html, no owl */
+.navbar {
+  width: 100%;
+  padding: 20px 0;
+  background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 32px;
+}
+.icon-container {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Individual icon cards */
+.icon-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #7a4cf9, #b056f9);
+  box-shadow:  10px 10px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.icon-card i {
+  font-size: 28px;
+  color: #fff;
+}
+
+.icon-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+.icon-card.active {
+  background: linear-gradient(135deg, #ff8a00, #e52e71);
+  box-shadow: 0 0 15px rgba(229, 46, 113, 0.6), 0 8px 32px rgba(40,40,40,0.18);
+}
+@media (max-width: 768px) {
+  .navbar {
+    margin-bottom: 18px;
+  }
+  .icon-container {
+    gap: 25px;
+    flex-wrap: wrap;
+  }
+  .icon-card {
+    width: 60px;
+    height: 60px;
+  }
+  .icon-card i {
+    font-size: 24px;
+  }
+}
+@media (max-width: 480px) {
+  .navbar {
+    margin-bottom: 12px;
+  }
+  .icon-container {
+    gap: 15px;
+  }
+  .icon-card {
+    width: 55px;
+    height: 55px;
+  }
+  .icon-card i {
+    font-size: 22px;
+  }
+}
+
+/* Center and responsive letter image */
+.letter-bg-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: calc(100vh - 120px); /* leave space for navbar */
+  min-height: 400px;
+  box-sizing: border-box;
+}
+.letter-bg {
+  width: 400px;
+  max-width: 98vw;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(40,40,40,0.18);
+  border-radius: 18px;
+  transition: transform 0.2s;
+}
+.letter-bg:active, .letter-bg:hover {
+  transform: scale(1.04);
+}
+@media (max-width: 768px) {
+  .letter-bg {
+    width: 95vw;
+    max-width: 95vw;
+  }
+  .letter-bg-container {
+    min-height: 220px;
+    height: calc(100vh - 80px);
+  }
+}
+@media (max-width: 600px) {
+  .letter-bg-container {
+    justify-content: center;
+    align-items: center;
+    min-height: 220px;
+    height: calc(100vh - 80px);
+    width: 100vw;
+    display: flex;
+    /* Ensure centering on mobile */
+  }
+  .letter-bg {
+    width: 95vw;
+    max-width: 95vw;
+    margin: 0 auto;
+    display: block;
+  }
+  .card-front img,
+  .card-back img {
+    width: 95vw;
+    max-width: 95vw;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 480px) {
+  .letter-bg {
+    width: 98vw;
+    max-width: 98vw;
+  }
+  .letter-bg-container {
+    min-height: 120px;
+    height: calc(100vh - 60px);
+  }
+}
+@media (max-width: 400px) {
+  .letter-bg-container {
+    min-height: 120px;
+    height: calc(100vh - 60px);
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .letter-bg {
+    width: 98vw;
+    max-width: 98vw;
+    margin: 0 auto;
+    display: block;
+  }
+  .card-front img,
+  .card-back img {
+    width: 98vw;
+    max-width: 98vw;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+/* Modal Styles - Enhanced Design and Color, fully responsive */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(160, 97, 255, 0.18); /* Soft purple overlay */
+  z-index: 1000;
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+.modal.show {
+  display: flex;
+  opacity: 1;
+}
+.modal-paper {
+  background: linear-gradient(135deg, #fffbe9 0%, #fbc2eb 100%);
+  border-radius: 22px;
+  box-shadow: 0 12px 48px 0 rgba(160, 97, 255, 0.18), 0 8px 32px rgba(40,40,40,0.18);
+  padding: 40px 32px 32px 32px;
+  max-width: 480px;
+  min-width: 220px;
+  width: 90vw;
+  min-height: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: scale(0.7) translateY(60px);
+  transition: opacity 0.4s cubic-bezier(.77,0,.18,1), transform 0.4s cubic-bezier(.77,0,.18,1);
+  border: 2.5px solid #a18cd1;
+}
+.modal.show .modal-paper {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+.close-modal {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  font-size: 2em;
+  color: #b056f9;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.2s;
+  text-shadow: 0 2px 8px #fbc2eb88;
+}
+.close-modal:hover {
+  color: #e52e71;
+}
+.modal-content {
+  width: 100%;
+  text-align: left;
+}
+.modal-message {
+  font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+  font-size: 1.18em;
+  color: #7a4cf9;
+  line-height: 1.8;
+  margin: 0;
+  word-break: break-word;
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(.77,0,.18,1) 0.3s;
+  text-align: center;
+  font-weight: 500;
+  text-shadow: 0 2px 8px #fffbe988, 0 2px 8px #a6c1ee44;
+}
+.modal.show .modal-message {
+  opacity: 1;
+}
+@media (max-width: 600px) {
+  .modal-paper {
+    padding: 18px 6px 12px 6px;
+    max-width: 98vw;
+    min-width: 0;
+    width: 98vw;
+    border-radius: 14px;
+  }
+  .close-modal {
+    top: 8px;
+    right: 12px;
+    font-size: 1.5em;
+  }
+  .modal-message {
+    font-size: 1em;
+  }
+  .owl-image {
+    width: 60px;
+    height: auto;
+    position: absolute;
+    right: 8px;
+    top: 18px;
+    transform: translateY(0);
+    z-index: 2;
+  }
+  img[src*="img1"] {
+    margin-left: 18px !important;
+    margin-right: auto !important;
+    display: block;
+  }
+}
+@media (max-width: 400px) {
+  .modal-paper {
+    padding: 10px 2px 6px 2px;
+    border-radius: 8px;
+    max-width: 98vw;
+  }
+  .modal-message {
+    font-size: 0.92em;
+  }
+  .owl-image {
+    width: 44px;
+    height: auto;
+    right: 4px;
+    top: 12px;
+  }
+  img[src*="img1"] {
+    margin-left: 8px !important;
+    margin-right: auto !important;
+    display: block;
+  }
+}

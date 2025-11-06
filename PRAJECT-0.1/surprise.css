@@ -1,0 +1,211 @@
+/* General Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #333;
+}
+
+/* Container Styling */
+.container {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+    padding: 35px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    height: 60%;
+    width: 35%;
+    position: relative; /* Positioning context for the modal */
+    transition: transform 0.3s ease;
+}
+
+/* Hover Effect for Container */
+.container:hover {
+    transform: translateY(-8px);
+}
+
+/* Heading Styling */
+.description h1 {
+    margin-top: 11%;
+    font-size: 50px;
+    color: #333;
+    margin-bottom: 1%;
+    font-weight: 600;
+}
+
+/* Paragraph Styling */
+.description p {
+    color: #777;
+    margin-top: -2%;
+    margin-bottom: 18%;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* Form Styling */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Input Fields */
+input[type="password"] {
+    width: 60%;
+    padding: 12px 15px;
+    font-size: 16px;
+    font-weight: 500; 
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Input Focus Styling */
+input[type="password"]:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Button Styling */
+button {
+    padding: 12px;
+    background: linear-gradient(135deg, #a6c1ee 25%, #fbc2eb 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+    width: 66%;
+}
+
+/* Button Hover Effect */
+button:hover {
+    background-color: #4e4f51;
+}
+
+/* Error Message Styling */
+.error-message {
+    color: red;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: -10px;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: absolute; /* Position inside the container */
+    z-index: 1;
+    left: 50%;
+    top: 44%;
+    transform: translate(-50%, -50%); /* Center the modal */
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #fbc2eb 50%, #a6c1ee 100%);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 23%; /* Allow width to adjust based on content */
+    height: 5%; /* Allow height to adjust based on content */
+    max-width: 400px; /* Max width to ensure it doesn't get too wide */
+}
+.modal p {
+    margin: 0%;
+    font-size: 17px;
+    font-weight: 700;
+    color: #333;
+}
+/* Modal Close Button */
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: -10px;
+    right: 1px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* Modal Show Animation */
+.modal.show {
+    display: block;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* Modal Hide Animation */
+.modal.hide {
+    opacity: 0;
+    display: none;
+}
+
+@media (max-width: 600px) {
+  .container {
+    height: 100vh;
+    width: 100vw;
+    min-height: 100vh;
+    min-width: 100vw;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .description h1,
+  .description p,
+  .login-form,
+  .login-form input,
+  .login-form button {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  .login-form input[type="password"],
+  .login-form button {
+    width: 90vw;
+    max-width: 350px;
+    box-sizing: border-box;
+  }
+  .login-form {
+    gap: 24px;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    align-items: center;
+    justify-content: center;
+  }
+  .login-form button {
+    margin-top: 10px;
+    order: 1;
+  }
+  .error-message {
+    margin-top: 14px;
+    margin-bottom: 0;
+    display: block;
+    text-align: center;
+    width: 90vw;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    order: 2;
+  }
+}
